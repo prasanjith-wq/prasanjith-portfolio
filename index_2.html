@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prasanjith Raghusala — Full-Stack Engineer</title>
+<meta name="description" content="Prasanjith Raghusala. Full-stack engineer, Bangalore. Currently building Roombr Edge AI — an offline K–12 classroom AI platform." />
+<meta property="og:title" content="Prasanjith Raghusala — Full-Stack Engineer" />
+<meta property="og:description" content="Full-stack engineer, Bangalore. Building Roombr Edge AI." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F2EDE1;
+    --paper-2: #E9E2D1;
+    --ink: #141210;
+    --ink-dim: #5A5448;
+    --ink-faint: #9A9384;
+    --rule: #141210;
+    --rule-soft: #C8C0AE;
+    --accent: #C13319;
+    --accent-2: #1F3A5F;
+    --pop: #E6F063;
+
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Inter Tight", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+    --maxw: 1320px;
+    --pad: clamp(20px, 4vw, 64px);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 100;
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+  }
+  .masthead .wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 56px;
+    gap: 16px;
+  }
+  .mh-left, .mh-right {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .mh-right { text-align: right; }
+  .mh-mark {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .mh-mark .amp { color: var(--accent); }
+
+  .live { display: inline-flex; align-items: center; gap: 8px; }
+  .live .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(193, 51, 25, 0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(193, 51, 25, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(193, 51, 25, 0); }
+  }
+
+  @media (max-width: 720px) {
+    .masthead .wrap { grid-template-columns: 1fr auto; }
+    .mh-left { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: clamp(40px, 7vh, 80px) 0 clamp(60px, 10vh, 120px);
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding-bottom: clamp(40px, 8vh, 80px);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .hero-top .right { text-align: right; }
+  .hero-top b { color: var(--ink); font-weight: 500; }
+
+  h1.name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(64px, 16vw, 240px);
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+  }
+  h1.name .l1 { display: block; }
+  h1.name .l2 {
+    display: block;
+    font-style: italic;
+    padding-left: 0.6em;
+    color: var(--accent);
+  }
+  h1.name .l2 .swap {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  .hero-grid {
+    margin-top: clamp(40px, 7vh, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(20px, 4vw, 64px);
+    border-top: 1px solid var(--ink);
+    padding-top: 32px;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .hero-cell .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  .hero-cell .val {
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.8vw, 26px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .hero-cell .val em { font-style: italic; color: var(--accent); }
+  .hero-cell .val a:hover { color: var(--accent); }
+
+  .status {
+    margin-top: clamp(36px, 6vh, 56px);
+    display: inline-flex;
+    align-items: center; gap: 12px;
+    padding: 10px 18px 10px 14px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: var(--paper);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .status .lbl { color: var(--accent); font-weight: 600; }
+  .status b { color: var(--ink); font-weight: 500; }
+
+  /* ---------- SECTION BASE ---------- */
+  section {
+    padding: clamp(80px, 13vh, 160px) 0;
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+  }
+  .sect-head {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(20px, 4vw, 80px);
+    margin-bottom: clamp(48px, 8vh, 96px);
+    align-items: baseline;
+  }
+  @media (max-width: 800px) {
+    .sect-head { grid-template-columns: 1fr; gap: 14px; }
+  }
+  .sect-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-top: 1px solid var(--ink);
+    padding-top: 10px;
+  }
+  .sect-tag .num { color: var(--accent); margin-right: 8px; }
+
+  .sect-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 14ch;
+  }
+  .sect-title em { font-style: italic; color: var(--accent); }
+
+  /* ---------- §01 INDEX ---------- */
+  .toc { display: grid; gap: 0; }
+  .toc a {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    align-items: baseline;
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule-soft);
+    transition: padding-left .35s ease, color .25s;
+  }
+  .toc a:last-child { border-bottom: 1px solid var(--rule-soft); }
+  .toc a:hover { padding-left: 14px; color: var(--accent); }
+  .toc .n {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--ink-faint);
+  }
+  .toc .t {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .toc .t em { font-style: italic; }
+  .toc .p {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  @media (max-width: 700px) {
+    .toc a { grid-template-columns: 40px 1fr; }
+    .toc .p { display: none; }
+  }
+
+  /* ---------- §02 STATEMENT ---------- */
+  .statement-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(20px, 4vw, 80px);
+  }
+  @media (max-width: 800px) { .statement-grid { grid-template-columns: 1fr; } }
+  .statement-grid .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .statement p {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(24px, 2.6vw, 40px);
+    line-height: 1.35;
+    margin: 0 0 1em;
+    max-width: 28ch;
+  }
+  .statement p em { font-style: italic; color: var(--accent); }
+  .statement p .blue { color: var(--accent-2); font-style: italic; }
+
+  .stat-rule {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .stat-rule .stat {
+    padding: 24px 24px 24px 0;
+    border-right: 1px solid var(--rule-soft);
+  }
+  .stat-rule .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: var(--serif);
+    font-size: clamp(48px, 5.5vw, 80px);
+    line-height: 1;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .stat .num sup { color: var(--accent); font-size: 0.45em; vertical-align: super; }
+  .stat .lbl {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- §03 WORK ---------- */
+  .work-list { display: grid; gap: 0; }
+  .proj {
+    display: grid;
+    grid-template-columns: 60px 2fr 1fr auto;
+    align-items: start;
+    gap: clamp(16px, 3vw, 48px);
+    padding: 32px 0;
+    border-top: 1px solid var(--rule-soft);
+    cursor: pointer;
+    position: relative;
+    transition: padding .35s ease, background .35s ease;
+  }
+  .proj:first-of-type { border-top: 1px solid var(--ink); }
+  .proj:last-child { border-bottom: 1px solid var(--ink); }
+  .proj:hover { padding-left: 18px; }
+  .proj:hover .p-name { color: var(--accent); }
+  .proj:hover .p-arr { transform: rotate(-45deg) translate(6px, -2px); color: var(--accent); }
+  .proj:hover .p-mask { grid-template-rows: 1fr; opacity: 1; }
+
+  .p-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    padding-top: 18px;
+  }
+  .p-main { min-width: 0; }
+  .p-name {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: color .25s;
+  }
+  .p-name em { font-style: italic; color: var(--accent); }
+  .p-mask {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .45s ease, opacity .35s ease;
+    opacity: 0.7;
+  }
+  .p-mask > div { overflow: hidden; }
+  .p-mask p {
+    margin: 18px 0 0;
+    color: var(--ink-dim);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 60ch;
+  }
+  .p-tags {
+    margin-top: 18px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--paper);
+  }
+  .p-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 22px;
+    line-height: 1.7;
+  }
+  .p-meta b { color: var(--ink); font-weight: 500; }
+  .p-arr {
+    font-size: 28px;
+    line-height: 1;
+    color: var(--ink-faint);
+    transition: transform .35s ease, color .25s;
+    transform: rotate(-45deg);
+    padding-top: 18px;
+  }
+  @media (max-width: 820px) {
+    .proj { grid-template-columns: 40px 1fr; gap: 16px; }
+    .p-meta, .p-arr { display: none; }
+  }
+
+  /* ---------- §04 EXPERIENCE ---------- */
+  .exp { display: grid; gap: 0; }
+  .exp-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1.4fr;
+    gap: clamp(16px, 3vw, 48px);
+    padding: 36px 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .exp-row:first-of-type { border-top: 1px solid var(--ink); }
+  .exp-row:last-child { border-bottom: 1px solid var(--ink); }
+  .exp-when {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .exp-when .now {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .exp-role .at {
+    display: block;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.78em;
+    margin-top: 4px;
+  }
+  .exp-desc {
+    color: var(--ink-dim);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  @media (max-width: 820px) {
+    .exp-row { grid-template-columns: 1fr; gap: 10px; padding: 28px 0; }
+  }
+
+  /* ---------- §05 STACK ---------- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+  .stack-cell {
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 28px 24px 32px;
+    background: var(--paper);
+    transition: background .25s;
+  }
+  .stack-cell:hover { background: var(--paper-2); }
+  .stack-cell h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .stack-cell ul {
+    list-style: none; margin: 0; padding: 0;
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .stack-cell li { font-style: italic; }
+  .stack-cell li::before { content: "— "; font-style: normal; color: var(--ink-faint); }
+
+  /* ---------- §06 PRINCIPLES ---------- */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+  @media (max-width: 760px) { .principles { grid-template-columns: 1fr; } }
+  .principle {
+    padding: clamp(36px, 5vw, 56px) clamp(24px, 3vw, 48px) clamp(36px, 5vw, 56px) 0;
+    border-bottom: 1px solid var(--rule-soft);
+    border-right: 1px solid var(--rule-soft);
+    position: relative;
+  }
+  .principle:nth-child(2n) { border-right: none; padding-left: clamp(24px, 3vw, 48px); padding-right: 0; }
+  @media (max-width: 760px) {
+    .principle, .principle:nth-child(2n) {
+      border-right: none;
+      padding: 36px 0;
+    }
+  }
+  .principle .pn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .principle h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+  }
+  .principle h3 em { font-style: italic; color: var(--accent); }
+  .principle p {
+    color: var(--ink-dim);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 42ch;
+  }
+
+  /* ---------- §07 CONTACT ---------- */
+  .contact {
+    padding: clamp(80px, 14vh, 160px) 0 clamp(60px, 10vh, 120px);
+    text-align: center;
+  }
+  .contact .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 12vw, 200px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0;
+  }
+  .contact h2 em { font-style: italic; color: var(--accent); }
+  .contact h2 .l2 { display: block; padding-left: 0.4em; }
+
+  .contact-row {
+    margin-top: clamp(40px, 6vh, 64px);
+    display: flex; flex-wrap: wrap; gap: 14px;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 26px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    transition: all .25s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+  .btn.solid { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .btn.solid:hover { background: var(--ink); border-color: var(--ink); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--ink);
+    padding: 32px 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  footer .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  footer .center { text-align: center; }
+  footer .right { text-align: right; }
+  footer b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 720px) {
+    footer .wrap { grid-template-columns: 1fr; text-align: center; }
+    footer .right, footer .center { text-align: center; }
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1 { animation-delay: .05s; }
+  .d2 { animation-delay: .2s; }
+  .d3 { animation-delay: .35s; }
+  .d4 { animation-delay: .5s; }
+  .d5 { animation-delay: .65s; }
+
+  .obs { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
+  .obs.in { opacity: 1; transform: translateY(0); }
+
+  @media print {
+    body::before { display: none; }
+    .masthead, .status, .btn, footer { display: none; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="mh-left">
+      <span class="live"><span class="dot"></span>Available · select work</span>
+    </div>
+    <a href="#top" class="mh-mark">Prasanjith <span class="amp">R.</span></a>
+    <div class="mh-right" id="clock">— · —</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section style="padding:0;border-bottom:none" id="top">
+<header class="hero">
+  <div class="wrap">
+
+    <div class="hero-top reveal d1">
+      <div>Portfolio &nbsp;/&nbsp; <b>Volume MMXXVI</b> &nbsp;/&nbsp; Issue 01</div>
+      <div class="right">Bangalore, IN &nbsp;·&nbsp; <b>12.97° N</b></div>
+    </div>
+
+    <h1 class="name">
+      <span class="l1 reveal d2">Prasanjith</span>
+      <span class="l2 reveal d3">Ragh<span class="swap">u</span>sala<span class="swap">.</span></span>
+    </h1>
+
+    <div class="hero-grid">
+      <div class="hero-cell reveal d4">
+        <div class="lbl">— Designation</div>
+        <div class="val"><em>Full-stack engineer</em>, building product end-to-end — front-ends, backends, and on-device AI.</div>
+      </div>
+      <div class="hero-cell reveal d4">
+        <div class="lbl">— Currently</div>
+        <div class="val">at <em>CognidaX&nbsp;|&nbsp;AI</em>, leading work on <em>Roombr Edge AI</em> — an offline K–12 classroom platform that runs entirely on Intel Arc hardware.</div>
+      </div>
+      <div class="hero-cell reveal d4">
+        <div class="lbl">— Reach</div>
+        <div class="val">
+          <a href="mailto:prasanjith.raghusala2002@gmail.com">prasanjith.raghusala<br/>2002@gmail.com</a><br/>
+          <span style="color:var(--ink-faint);font-size:0.8em;">+91 81793 87745</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status reveal d5">
+      <span class="lbl">▍ Now</span>
+      <b>Hardening assessment generation against cross-domain hallucinations</b>
+    </div>
+
+  </div>
+</header>
+</section>
+
+<!-- §01 INDEX -->
+<section id="index">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 01</span>Index</div>
+      <h2 class="sect-title obs">A <em>map</em> of the page.</h2>
+    </div>
+
+    <nav class="toc">
+      <a href="#statement" class="obs"><span class="n">/01</span><span class="t"><em>Statement</em></span><span class="p">Who · What · Why</span></a>
+      <a href="#work" class="obs"><span class="n">/02</span><span class="t">Selected <em>Work</em></span><span class="p">Six projects · 2024 → 2026</span></a>
+      <a href="#experience" class="obs"><span class="n">/03</span><span class="t"><em>Experience</em></span><span class="p">Roles &amp; education</span></a>
+      <a href="#stack" class="obs"><span class="n">/04</span><span class="t">The <em>Stack</em></span><span class="p">Tools, languages, infra</span></a>
+      <a href="#principles" class="obs"><span class="n">/05</span><span class="t"><em>Principles</em></span><span class="p">How I work</span></a>
+      <a href="#contact" class="obs"><span class="n">/06</span><span class="t"><em>Contact</em></span><span class="p">Get in touch</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- §02 STATEMENT -->
+<section id="statement">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 02</span>Statement</div>
+      <h2 class="sect-title obs">Two years, <em>shipping.</em></h2>
+    </div>
+
+    <div class="statement-grid statement">
+      <div class="lbl obs">— Profile</div>
+      <div>
+        <p class="obs">
+          I'm a full-stack engineer based in <em>Bangalore</em>. I work end-to-end — UI in React, Angular, or Flutter; APIs in Python and PHP; databases when they need to be normalised and pipelines when they need to be fast.
+        </p>
+        <p class="obs">
+          Lately my work has tilted toward <span class="blue">on-device AI</span> — STT, retrieval, and assessment systems running locally on edge hardware. I care about systems that fail visibly rather than silently, and code that someone else can read six months later.
+        </p>
+
+        <div class="stat-rule obs">
+          <div class="stat">
+            <div class="num">2<sup>+</sup></div>
+            <div class="lbl">Years shipping</div>
+          </div>
+          <div class="stat">
+            <div class="num">06</div>
+            <div class="lbl">Production projects</div>
+          </div>
+          <div class="stat">
+            <div class="num">100%</div>
+            <div class="lbl">On-device · Edge AI</div>
+          </div>
+          <div class="stat">
+            <div class="num">03</div>
+            <div class="lbl">Languages spoken</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §03 WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 03</span>Selected work</div>
+      <h2 class="sect-title obs">Things I've <em>built.</em></h2>
+    </div>
+
+    <div class="work-list">
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/01</div>
+        <div class="p-main">
+          <div class="p-name">Roombr <em>Edge AI</em></div>
+          <div class="p-mask"><div>
+            <p>A fully offline K–12 classroom AI platform — STT transcription → auto-chapterization → RAG ingestion → assessment generation → student Q&amp;A. The whole pipeline runs on-device on Intel Arc hardware, with no cloud dependency. Built on FastAPI, OpenVINO GenAI, WhisperX, Qdrant, and BGE embeddings.</p>
+            <div class="p-tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">OpenVINO GenAI</span>
+              <span class="tag">WhisperX</span>
+              <span class="tag">Qdrant</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Edge AI</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>2026 — Now</b><br/>CognidaX | AI</div>
+        <div class="p-arr">→</div>
+      </a>
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/02</div>
+        <div class="p-main">
+          <div class="p-name">Hey <em>Thambi</em></div>
+          <div class="p-mask"><div>
+            <p>A bilingual Malayalam–English learning app for students aged 15–23. A meme-feed of slang, idioms, and daily-life scenarios, paired with level-based quizzes and gamification — XP, badges, streaks, milestones. Production-ready Android MVP with a web admin panel for content moderation.</p>
+            <div class="p-tags">
+              <span class="tag">Android</span>
+              <span class="tag">Backend APIs</span>
+              <span class="tag">Gamification</span>
+              <span class="tag">Bilingual UX</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>Oct — Dec 2025</b><br/>MVP</div>
+        <div class="p-arr">→</div>
+      </a>
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/03</div>
+        <div class="p-main">
+          <div class="p-name">AI Hotel <em>Booking</em></div>
+          <div class="p-mask"><div>
+            <p>An AI-driven cloud telephony SaaS for voice-based hotel reservations, availability checks, and cancellations. Real-time voice over WebRTC and LiveKit, FastAPI conversation flow, PMS sync, multilingual STT/TTS, and a Flutter admin dashboard for operators.</p>
+            <div class="p-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">WebRTC</span>
+              <span class="tag">LiveKit</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SIP</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>May — Sep 2025</b><br/>SaaS</div>
+        <div class="p-arr">→</div>
+      </a>
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/04</div>
+        <div class="p-main">
+          <div class="p-name">Restaurant <em>Forecasting</em></div>
+          <div class="p-mask"><div>
+            <p>Cross-platform Flutter app for inventory tracking and operational forecasting. Material Design UI with Provider/Bloc state management, REST APIs over PostgreSQL. Demand forecasting, dynamic pricing, and scenario simulation drove measurable wastage reduction in pilot use.</p>
+            <div class="p-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Forecasting</span>
+              <span class="tag">REST</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>Jan — Apr 2025</b><br/>F&amp;B Ops</div>
+        <div class="p-arr">→</div>
+      </a>
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/05</div>
+        <div class="p-main">
+          <div class="p-name"><em>Pinhopes</em></div>
+          <div class="p-mask"><div>
+            <p>An AI-powered job search and recruitment platform with advanced filtering, AI-driven recommendations, and video applications. Front-end built in Bootstrap 5 with jQuery and AJAX, OAuth login, and resume upload. Lazy loading, caching, and optimised API calls for scale.</p>
+            <div class="p-tags">
+              <span class="tag">Bootstrap 5</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">OAuth</span>
+              <span class="tag">AJAX</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>Dec 2024 — Jan 2025</b><br/>Recruitment</div>
+        <div class="p-arr">→</div>
+      </a>
+
+      <a class="proj obs" href="#" onclick="return false;">
+        <div class="p-num">/06</div>
+        <div class="p-main">
+          <div class="p-name">Device <em>Health Report</em></div>
+          <div class="p-mask"><div>
+            <p>A high-performance web application for device health monitoring and lifecycle tracking. Bootstrap 5 + jQuery + AJAX on the front, PHP Laravel (MVC) and MySQL on the back. Lazy loading, optimised rendering, and query tuning for snappy ops dashboards.</p>
+            <div class="p-tags">
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Bootstrap 5</span>
+              <span class="tag">jQuery</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="p-meta"><b>May — Nov 2024</b><br/>Reino Tech.</div>
+        <div class="p-arr">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- §04 EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 04</span>Experience</div>
+      <h2 class="sect-title obs">Where I've <em>worked.</em></h2>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row obs">
+        <div class="exp-when">Nov 2024 — Now <span class="now">Current</span></div>
+        <div class="exp-role">Full-Stack Engineer<span class="at">CognidaX | AI · Bangalore</span></div>
+        <div class="exp-desc">
+          Building scalable, high-performance interfaces with React, Angular, and modern JavaScript. Architecting front-end structures for maintainability and performance, and shipping complex applications under tight delivery cycles. Currently leading work on Roombr Edge AI.
+        </div>
+      </div>
+
+      <div class="exp-row obs">
+        <div class="exp-when">May — Nov 2024</div>
+        <div class="exp-role">Software Development Intern<span class="at">Reino Technologies · Bangalore</span></div>
+        <div class="exp-desc">
+          Designed and shipped a Device Health Report web application for product status and lifecycle tracking. React/Angular UI with an MVC pattern, jQuery for interactivity, PHP Laravel and MySQL on the backend.
+        </div>
+      </div>
+
+      <div class="exp-row obs">
+        <div class="exp-when">2019 — 2023</div>
+        <div class="exp-role">B.Tech, Electronics &amp; Communication<span class="at">JNTU · Hyderabad</span></div>
+        <div class="exp-desc">
+          Foundations in Python, Java, and C++. Coursework in signal processing, embedded systems, and communication theory — useful background for the on-device AI work I do now.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §05 STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 05</span>The stack</div>
+      <h2 class="sect-title obs">Tools of the <em>trade.</em></h2>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-cell obs">
+        <h4>// Languages</h4>
+        <ul>
+          <li>Python</li>
+          <li>JavaScript (ES6)</li>
+          <li>Dart</li>
+          <li>HTML5 &amp; CSS3</li>
+          <li>SQL</li>
+          <li>Java &amp; C++</li>
+        </ul>
+      </div>
+      <div class="stack-cell obs">
+        <h4>// Frameworks</h4>
+        <ul>
+          <li>React</li>
+          <li>Angular</li>
+          <li>FastAPI</li>
+          <li>Flutter</li>
+          <li>Bootstrap 5</li>
+          <li>Laravel</li>
+        </ul>
+      </div>
+      <div class="stack-cell obs">
+        <h4>// AI / Edge</h4>
+        <ul>
+          <li>OpenVINO GenAI</li>
+          <li>WhisperX</li>
+          <li>Ollama · Qwen2.5</li>
+          <li>BGE-M3 embeddings</li>
+          <li>Qdrant</li>
+          <li>RAG pipelines</li>
+        </ul>
+      </div>
+      <div class="stack-cell obs">
+        <h4>// Data &amp; Infra</h4>
+        <ul>
+          <li>PostgreSQL</li>
+          <li>MySQL</li>
+          <li>Git &amp; GitHub</li>
+          <li>WebRTC · LiveKit</li>
+          <li>Linux &amp; Windows</li>
+          <li>Intel Arc edge HW</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §06 PRINCIPLES -->
+<section id="principles">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-tag obs"><span class="num">§ 06</span>Principles</div>
+      <h2 class="sect-title obs">How I <em>work.</em></h2>
+    </div>
+
+    <div class="principles">
+      <div class="principle obs">
+        <div class="pn">— No. 01</div>
+        <h3>Targeted patches over <em>full rewrites.</em></h3>
+        <p>Most production code doesn't need a rewrite. It needs precise, surgical changes that preserve everything that already works. I default to small, reviewable edits that are easy to roll back.</p>
+      </div>
+      <div class="principle obs">
+        <div class="pn">— No. 02</div>
+        <h3>Fail <em>visibly</em>, never silently.</h3>
+        <p>A wrong answer that looks confident is worse than a refusal. When grounding fails or inputs are missing, the system should surface that clearly — not paper over it with a plausible hallucination.</p>
+      </div>
+      <div class="principle obs">
+        <div class="pn">— No. 03</div>
+        <h3>Backend-first, <em>UI later.</em></h3>
+        <p>I validate behavior in the API layer — Swagger, curl, tests — before any pixel is moved. The UI is a presentation of a system that already works, not a place to discover that it doesn't.</p>
+      </div>
+      <div class="principle obs">
+        <div class="pn">— No. 04</div>
+        <h3>Subject-agnostic by <em>default.</em></h3>
+        <p>Hardcoded keyword lists and domain-specific shortcuts age badly. I prefer general approaches — embeddings, retrieval, structured prompts — that hold up across subjects, languages, and edge cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §07 CONTACT -->
+<section id="contact" style="border-bottom: none;">
+  <div class="wrap contact">
+    <div class="kicker obs">— § 07 / Contact</div>
+    <h2 class="obs">
+      Let's build<br/>
+      <span class="l2">something <em>good.</em></span>
+    </h2>
+    <div class="contact-row obs">
+      <a class="btn solid" href="mailto:prasanjith.raghusala2002@gmail.com">Email</a>
+      <a class="btn" href="tel:+918179387745">+91 81793 87745</a>
+      <a class="btn" href="https://www.linkedin.com/in/prasanjith" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/prasanjith-hash" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>© <b>2026</b> · Prasanjith Raghusala</div>
+    <div class="center">Set in <b>Instrument Serif</b> &amp; <b>JetBrains Mono</b></div>
+    <div class="right">Designed &amp; built · <b>Bangalore</b></div>
+  </div>
+</footer>
+
+<script>
+  // live IST clock
+  const clock = document.getElementById('clock');
+  function tick() {
+    const now = new Date();
+    const opts = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' };
+    const t = now.toLocaleTimeString('en-GB', opts);
+    clock.innerHTML = `IST &nbsp;·&nbsp; <b style="color:var(--ink)">${t}</b>`;
+  }
+  tick(); setInterval(tick, 30 * 1000);
+
+  // intersection observer reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.obs').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
